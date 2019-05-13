@@ -1,0 +1,59 @@
+// Animations
+@keyframes attacked-animation {        
+    0% { 
+        transform: translateX(0);
+        filter: hue-rotate(0);
+    }
+    25% { 
+        transform: translateX(-20px);
+    }
+    50% { 
+        transform: translateX(20px);
+        filter: hue-rotate(90deg);
+    }
+    100% { 
+        transform: translate(0);
+        filter: hue-rotate(0);
+    }
+}
+
+@keyframes special-animation {        
+    0% { 
+        transform: translateX(0);
+        filter: hue-rotate(0);
+    }
+    25% { 
+        transform: translateX(-40px);
+    }
+    50% { 
+        transform: translateX(40px);
+        filter: hue-rotate(90deg);
+    }
+    100% { 
+        transform: translate(0);
+        filter: hue-rotate(0);
+    }
+}
+
+@keyframes hide-description {        
+    0% { 
+        opacity: 0; 
+        visibility: visible; 
+    }
+
+    10% { opacity: 1; }
+    80% {opacity: 1;}
+    100% { opacity: 0; }
+}
+
+@keyframes heal-effect {
+    0% {
+      filter: sepia() saturate(0) hue-rotate(0);
+    }
+    50% { 
+      filter: sepia() saturate(100%) hue-rotate(90deg);
+    }
+    100% { 
+      filter: sepia() saturate(100%) hue-rotate(90deg);
+    }
+}

@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inheritl
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#vue-app {
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .4),
+        rgba(0, 0, 0, .8)),
+    url(../media/8bit-bg1.gif);
+
+    background-size: cover;
+    background-position: bottom;
+}

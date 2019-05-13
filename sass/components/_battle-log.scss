@@ -1,0 +1,23 @@
+// Battle Log
+.battle-info {
+    background-color: #000;
+    border: 2px solid #fff;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: left;
+    height: 14.8rem;
+    overflow-y: scroll;
+
+    &__log {
+        margin-bottom: 2rem;
+        list-style: none;
+    }
+
+    &__text {
+        color: #fff;
+        font-size: 2.2rem;
+    }
+}
+
+
+

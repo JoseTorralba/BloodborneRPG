@@ -1,0 +1,266 @@
+@keyframes attacked-animation {
+  0% {
+    transform: translateX(0);
+    filter: hue-rotate(0); }
+  25% {
+    transform: translateX(-20px); }
+  50% {
+    transform: translateX(20px);
+    filter: hue-rotate(90deg); }
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0); } }
+
+@keyframes special-animation {
+  0% {
+    transform: translateX(0);
+    filter: hue-rotate(0); }
+  25% {
+    transform: translateX(-40px); }
+  50% {
+    transform: translateX(40px);
+    filter: hue-rotate(90deg); }
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0); } }
+
+@keyframes hide-description {
+  0% {
+    opacity: 0;
+    visibility: visible; }
+  10% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes heal-effect {
+  0% {
+    filter: sepia() saturate(0) hue-rotate(0); }
+  50% {
+    filter: sepia() saturate(100%) hue-rotate(90deg); }
+  100% {
+    filter: sepia() saturate(100%) hue-rotate(90deg); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inheritl; }
+
+html {
+  font-size: 62.5%; }
+
+#vue-app {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url(../media/8bit-bg1.gif);
+  background-size: cover;
+  background-position: bottom; }
+
+body {
+  font-family: 'VT323', monospace;
+  text-align: center; }
+
+.attacked-animation {
+  position: relative;
+  animation: attacked-animation .2s ease; }
+
+.special-animation {
+  position: relative;
+  animation: special-animation .2s ease; }
+
+.heal-effect {
+  position: relative;
+  animation: heal-effect .2s ease; }
+
+.battle-info {
+  background-color: #000;
+  border: 2px solid #fff;
+  padding: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+  height: 14.8rem;
+  overflow-y: scroll; }
+  .battle-info__log {
+    margin-bottom: 2rem;
+    list-style: none; }
+  .battle-info__text {
+    color: #fff;
+    font-size: 2.2rem; }
+
+.button-tip {
+  position: relative;
+  display: inline-block; }
+  .button-tip:not(:last-child) {
+    margin-right: 1rem; }
+  .button-tip__btn {
+    font-size: 2rem;
+    padding: 1.3rem 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+    outline: none;
+    font-family: 'VT323', monospace; }
+  .button-tip__text {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #000;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.6;
+    text-align: left;
+    margin-left: -60px;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: -6.5rem;
+    visibility: hidden;
+    z-index: 1000; }
+    .button-tip__text--1 {
+      left: -60%;
+      width: 800px; }
+    .button-tip__text--2 {
+      left: -19rem;
+      width: 800px; }
+    .button-tip__text--3 {
+      left: -10rem;
+      width: 280px; }
+    .button-tip__text--4 {
+      left: -41rem;
+      width: 580px; }
+    .button-tip__text--5 {
+      left: 3rem;
+      width: 130px; }
+  .button-tip__btn:hover .button-tip__text {
+    animation: hide-description 3s ease; }
+
+.enemy-info {
+  padding-top: 3rem; }
+  .enemy-info__img {
+    width: 16%; }
+  .enemy-info__name {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 100;
+    padding-top: 2rem;
+    text-shadow: 0px 5px 10px #000; }
+  .enemy-info__health-container {
+    padding-top: 1rem; }
+    .enemy-info__health-container--health-bar {
+      width: 700px;
+      border: 2px solid #000;
+      margin: 0 auto 7.3rem auto;
+      background-color: #000; }
+    .enemy-info__health-container--health-color {
+      height: 2.2rem;
+      background: crimson;
+      transition: all .3s; }
+    .enemy-info__health-container--health-value {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 100;
+      padding: .5rem 0; }
+
+.options {
+  position: relative;
+  color: #fff; }
+  .options__sound, .options__restart {
+    position: absolute;
+    font-size: 3.5rem;
+    text-shadow: 0px 5px 10px #000;
+    right: 10rem;
+    cursor: pointer;
+    transition: all .3s; }
+    .options__sound:not(:last-child), .options__restart:not(:last-child) {
+      margin-right: 6rem; }
+    .options__sound:hover, .options__restart:hover {
+      color: royalblue; }
+  .options__sound {
+    top: 4rem; }
+  .options__restart {
+    top: 4rem;
+    right: 18rem; }
+  .options__restart-text, .options__sound-text {
+    border: 2px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #000;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.6;
+    text-align: left;
+    margin-left: -60px;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 10rem;
+    right: 15rem;
+    visibility: hidden;
+    z-index: 1000; }
+  .options:hover .options__restart-text {
+    animation: hide-description 3s ease; }
+  .options:hover .options__sound-text {
+    animation: hide-description 3s ease; }
+
+.player-info {
+  background-color: #000;
+  border: 2px solid #fff;
+  padding: 2rem 0;
+  margin-top: 3rem; }
+  .player-info__heading {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 500;
+    padding-bottom: 1rem; }
+  .player-info__health-bar {
+    width: 200px;
+    border: 2px solid #fff;
+    margin: 0 auto 20px auto; }
+  .player-info__health-color {
+    height: 20px;
+    background: royalblue;
+    transition: all .3s; }
+  .player-info__health-value {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 100;
+    padding: .5rem 0; }
+  .player-info__gun {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 100; }
+    .player-info__gun--full-ammo {
+      color: lime; }
+    .player-info__gun--half-ammo {
+      color: yellow; }
+    .player-info__gun--low-ammo {
+      color: red !important; }
+  .player-info__vial {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 100; }
+    .player-info__vial--full-vials {
+      color: lime; }
+    .player-info__vial--half-vials {
+      color: yellow; }
+    .player-info__vial--low-vials {
+      color: red !important; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }

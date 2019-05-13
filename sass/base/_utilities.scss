@@ -1,0 +1,15 @@
+// Animations Called
+.attacked-animation {
+    position: relative;
+    animation: attacked-animation .2s ease;
+}
+
+.special-animation {
+    position: relative;
+    animation: special-animation .2s ease;
+}
+
+.heal-effect {
+    position: relative;
+    animation: heal-effect .2s ease;
+}

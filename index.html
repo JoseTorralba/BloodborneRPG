@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bloodborne RPG</title>
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="vue-app">
+        <!-- Sound Icon -->
+        <div class="options">
+            <i v-bind:class="['options__sound', bgm.isPlaying ? 'fas fa-pause' : 'fas fa-play']" 
+            v-on:click.prevent="bgm.isPlaying ? pause(bgm) : play(bgm)" 
+            v-for="bgm in backgroundMusic"></i>
+
+            <div class="options__sound-text">
+                Play Background Music
+            </div>
+        </div>
+
+        <!-- Restart Icon -->
+        <div class="options">
+            <i v-on:click="restart" class="fas fa-redo options__restart"></i>
+            <div class="options__restart-text">
+                Start a new game
+            </div>
+        </div>
+            
+        <!-- Enemy Information -->
+        <div class="enemy-info">
+            <img v-bind:src="enemyImg" class="enemy-info__img" id="rom-img">
+            <h2 class="enemy-info__name">Rom, the Vacuous Spider</h2>
+
+            <div class="enemy-info__health-container">
+                <div class="enemy-info__health-container--health-bar">
+                    <div class="enemy-info__health-container--health-color" v-bind:style="enemyHealthBar"></div>
+                    <p class="enemy-info__health-container--health-value"> {{ enemyHealth }} </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attack Button -->
+        <div v-show="!ended">
+            <div class="button-tip">
+                <button v-on:click="attack" class="button-tip__btn">
+                    <span class="button-tip__btn">Attack</span>
+                    <span class="button-tip__text button-tip__text--1">
+                        Attack with Saw Cleaver, a melee weapon that deals a good amount of damage. Enemy will Attack back.
+                    </span>
+                </button>
+            </div>
+    
+            <!-- Special Attack Button -->
+            <div class="button-tip">
+                <button v-on:click="specialAttack" class="button-tip__btn">
+                    <span class="button-tip__btn">Hunter Pistol</span>
+                    <span class="button-tip__text button-tip__text--2">
+                        The Hunter Pistol is a ranged weapon that deals a massive amount of damage. Enemy will Attack back.
+                    </span>
+                </button>
+            </div>
+            
+            <!-- Cure Button -->
+            <div class="button-tip">
+                <button v-on:click="heal" class="button-tip__btn">
+                    <span class="button-tip__btn">Blood Vial</span>
+                    <span class="button-tip__text button-tip__text--3">
+                        Blood Vials heal 25% of your health
+                    </span>
+                </button>
+            </div>
+            
+            <!-- Regain Bullets Button -->
+            <div class="button-tip">
+                <button v-on:click="bloodBullet" class="button-tip__btn">
+                    <span class="button-tip__btn">Blood Ammo</span>
+                    <span class="button-tip__text button-tip__text--4">
+                        Inflict 10% damage on self and gain an extra 4 bullets made out of blood.
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Restart Button -->
+        <div v-show="ended">
+            <div class="button-tip">
+                <button v-on:click="restart" class="button-tip__btn">
+                    <span class="button-tip__btn">Restart</span>
+                    <span class="button-tip__text button-tip__text--5">
+                        Start a new game
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Player Information -->
+        <div class="row">
+            <div class="col-1-of-3">
+                <div class="player-info">
+                    <h2 class="player-info__heading">Hunter</h2>
+
+                    <!-- Player Health -->
+                    <div class="player-info__health-bar">
+                        <div class="player-info__health-color" v-bind:style="playerHealthBar"></div>
+                        <p class="player-info__health-value"> {{ playerHealth }} </p>
+                    </div>
+
+                    <!-- Blood Vials -->
+                    <h2 class="player-info__vial">
+                        <span class="player-info__vial--vials">Blood Vials:</span>
+                        <span v-bind:class="[vialColorStyle]"> {{ playerBloodVials }} </span>
+                        <span> / 20</span>
+                    </h2>
+
+                    <!-- Gun Ammo -->
+                    <h2 class="player-info__gun">
+                        <span class="player-info__gun--weapon">Hunter Pistol Ammo:</span>
+                        <span v-bind:class="[ammoColorStyle]"> {{ playerAmmo }} </span>
+                        <span> / 16</span>
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Battle Log -->
+            <div class="col-2-of-3">
+                <div class="battle-info" id="battle-log">
+                    <ul class="battle-info__log" v-for="(log, index) in battleLog"> 
+                        
+                        <li class="battle-info__text" v-if="log.isAttacking">
+                            {{ log.info }} {{ log.damage }} Damage
+                        </li>
+
+                        <li class="battle-info__text" v-else-if="log.isSpecialAttacking">
+                            {{ log.info }} {{ log.damage }} Damage
+                        </li>
+
+                        <li class="battle-info__text" v-else-if="log.isHealing">
+                            {{ log.info }}
+                        </li>
+
+                        <li class="battle-info__text" v-else-if="log.isRestocking">
+                            {{ log.info }} {{ log.damage }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

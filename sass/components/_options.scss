@@ -1,0 +1,58 @@
+// Options Container
+.options {
+    position: relative;
+    color: #fff;
+
+    // Sound Div & Icon
+    &__sound, &__restart {
+        position: absolute;
+        font-size: 3.5rem;
+        text-shadow: 0px 5px 10px #000;
+        right: 10rem;
+        cursor: pointer;
+        transition: all .3s;
+        
+        &:not(:last-child) {
+            margin-right: 6rem;
+        }
+
+        &:hover {
+            color: royalblue;
+        }
+    }
+
+    &__sound {
+        top: 4rem;
+    }
+
+    &__restart {
+        top: 4rem;
+        right: 18rem;
+    }
+
+    &__restart-text, &__sound-text {
+        border: 2px solid #fff;
+        border-radius: 3px;
+        color: #fff;
+        background-color: #000;
+        font-size: 2rem;
+        font-weight: 100;
+        line-height: 1.6;
+        text-align: left;
+        margin-left: -60px;
+        padding: 1rem 2rem;
+        position: absolute;
+        top: 10rem;
+        right: 15rem;
+        visibility: hidden;
+        z-index: 1000;
+    }
+
+    &:hover &__restart-text {
+        animation: hide-description 3s ease;
+    }
+
+    &:hover &__sound-text {
+        animation: hide-description 3s ease;
+    }
+}

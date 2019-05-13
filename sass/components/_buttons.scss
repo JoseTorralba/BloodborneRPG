@@ -1,0 +1,64 @@
+// Button / Hover Tips
+.button-tip {
+    position: relative;
+    display: inline-block;
+
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    &__btn {
+        font-size: 2rem;
+        padding: 1.3rem 1.5rem;
+        cursor: pointer;
+        color: #fff;
+        background-color: #000;
+        outline: none;
+        font-family: 'VT323', monospace;
+    }
+
+    &__text {
+        border: 1px solid #fff;
+        border-radius: 3px;
+        color: #fff;
+        background-color: #000;
+        font-size: 2rem;
+        font-weight: 100;
+        line-height: 1.6;
+        text-align: left;
+        margin-left: -60px;
+        padding: 1rem 2rem;
+        position: absolute;
+        top: -6.5rem;
+        visibility: hidden;
+        z-index: 1000;
+
+        &--1 {
+            left: -60%; 
+            width: 800px;
+        }
+
+        &--2 {
+            left: -19rem; 
+            width: 800px;
+        }
+
+        &--3 {
+            left: -10rem; 
+            width: 280px;
+        }
+
+        &--4 {
+            left: -41rem; 
+            width: 580px;
+        }
+        &--5 {
+            left: 3rem; 
+            width: 130px;
+        }
+    }
+
+    &__btn:hover &__text {
+        animation: hide-description 3s ease;
+    }
+}
