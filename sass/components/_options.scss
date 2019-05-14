@@ -60,6 +60,10 @@
         right: 15rem;
         visibility: hidden;
         z-index: 1000;
+        
+        @include respond(tablet-portrait) {
+            display: none;
+        }
     }
 
     &:hover &__restart-text {

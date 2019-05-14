@@ -268,6 +268,9 @@ body {
     right: 15rem;
     visibility: hidden;
     z-index: 1000; }
+    @media only screen and (max-width: 56.25em) {
+      .options__restart-text, .options__sound-text {
+        display: none; } }
   .options:hover .options__restart-text {
     animation: hide-description 3s ease; }
   .options:hover .options__sound-text {
