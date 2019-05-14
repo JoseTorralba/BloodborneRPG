@@ -51,7 +51,20 @@
   box-sizing: inheritl; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  user-select: none; }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 #vue-app {
   height: 100vh;
@@ -62,6 +75,9 @@ html {
 body {
   font-family: 'VT323', monospace;
   text-align: center; }
+
+.fa-pause {
+  color: royalblue !important; }
 
 .attacked-animation {
   position: relative;
@@ -83,12 +99,26 @@ body {
   text-align: left;
   height: 14.8rem;
   overflow-y: scroll; }
+  @media only screen and (max-width: 25.875em) {
+    .battle-info {
+      height: 12rem; } }
   .battle-info__log {
     margin-bottom: 2rem;
     list-style: none; }
   .battle-info__text {
     color: #fff;
     font-size: 2.2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .battle-info__text {
+        font-size: 1.7rem; } }
+
+@media only screen and (max-width: 56.25em) {
+  .button-container {
+    margin-top: -5rem; } }
+
+@media only screen and (max-width: 23.4375em) {
+  .button-container {
+    margin-top: -6rem; } }
 
 .button-tip {
   position: relative;
@@ -103,6 +133,13 @@ body {
     background-color: #000;
     outline: none;
     font-family: 'VT323', monospace; }
+    @media only screen and (max-width: 37.5em) {
+      .button-tip__btn {
+        font-size: 1.7rem;
+        padding: 1.3rem 1rem; } }
+    @media only screen and (max-width: 23.4375em) {
+      .button-tip__btn {
+        padding: .8rem .7rem; } }
   .button-tip__text {
     border: 1px solid #fff;
     border-radius: 3px;
@@ -133,6 +170,9 @@ body {
     .button-tip__text--5 {
       left: 3rem;
       width: 130px; }
+    @media only screen and (max-width: 56.25em) {
+      .button-tip__text {
+        display: none; } }
   .button-tip__btn:hover .button-tip__text {
     animation: hide-description 3s ease; }
 
@@ -140,6 +180,9 @@ body {
   padding-top: 3rem; }
   .enemy-info__img {
     width: 16%; }
+    @media only screen and (max-width: 56.25em) {
+      .enemy-info__img {
+        width: 25%; } }
   .enemy-info__name {
     color: #fff;
     font-size: 2.4rem;
@@ -153,10 +196,25 @@ body {
       border: 2px solid #000;
       margin: 0 auto 7.3rem auto;
       background-color: #000; }
+      @media only screen and (max-width: 56.25em) {
+        .enemy-info__health-container--health-bar {
+          width: 55rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .enemy-info__health-container--health-bar {
+          width: 45rem; } }
+      @media only screen and (max-width: 25.875em) {
+        .enemy-info__health-container--health-bar {
+          width: 40rem; } }
+      @media only screen and (max-width: 23.4375em) {
+        .enemy-info__health-container--health-bar {
+          width: 36rem; } }
     .enemy-info__health-container--health-color {
       height: 2.2rem;
       background: crimson;
       transition: all .3s; }
+      @media only screen and (max-width: 37.5em) {
+        .enemy-info__health-container--health-color {
+          height: 1.8rem; } }
     .enemy-info__health-container--health-value {
       color: #fff;
       font-size: 2rem;
@@ -173,15 +231,27 @@ body {
     right: 10rem;
     cursor: pointer;
     transition: all .3s; }
+    @media only screen and (max-width: 37.5em) {
+      .options__sound, .options__restart {
+        font-size: 2rem; } }
     .options__sound:not(:last-child), .options__restart:not(:last-child) {
       margin-right: 6rem; }
+      @media only screen and (max-width: 56.25em) {
+        .options__sound:not(:last-child), .options__restart:not(:last-child) {
+          margin-right: 0; } }
     .options__sound:hover, .options__restart:hover {
       color: royalblue; }
   .options__sound {
     top: 4rem; }
+    @media only screen and (max-width: 37.5em) {
+      .options__sound {
+        right: 3rem; } }
   .options__restart {
     top: 4rem;
     right: 18rem; }
+    @media only screen and (max-width: 37.5em) {
+      .options__restart {
+        right: 7rem; } }
   .options__restart-text, .options__sound-text {
     border: 2px solid #fff;
     border-radius: 3px;
@@ -221,6 +291,9 @@ body {
     height: 20px;
     background: royalblue;
     transition: all .3s; }
+    @media only screen and (max-width: 37.5em) {
+      .player-info__health-color {
+        height: 1.8rem; } }
   .player-info__health-value {
     color: #fff;
     font-size: 2rem;
@@ -236,6 +309,9 @@ body {
       color: yellow; }
     .player-info__gun--low-ammo {
       color: red !important; }
+    @media only screen and (max-width: 37.5em) {
+      .player-info__gun {
+        font-size: 1.7rem; } }
   .player-info__vial {
     color: #fff;
     font-size: 2rem;
@@ -246,16 +322,36 @@ body {
       color: yellow; }
     .player-info__vial--low-vials {
       color: red !important; }
+    @media only screen and (max-width: 37.5em) {
+      .player-info__vial {
+        font-size: 1.7rem; } }
 
 .row {
   max-width: 114rem;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media only screen and (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 3rem; } }
   .row::after {
     content: "";
     display: table;
     clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+      @media only screen and (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {

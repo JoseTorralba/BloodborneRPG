@@ -22,8 +22,8 @@
             v-on:click.prevent="bgm.isPlaying ? pause(bgm) : play(bgm)" 
             v-for="bgm in backgroundMusic"></i>
 
-            <div class="options__sound-text">
-                Play Background Music
+            <div class="options__sound-text" v-for="bgm in backgroundMusic">
+                {{ bgm.isPlaying ? 'Pause' : 'Play' }} Background Music
             </div>
         </div>
 
@@ -49,7 +49,7 @@
         </div>
 
         <!-- Attack Button -->
-        <div v-show="!ended">
+        <div class="button-container" v-show="!ended">
             <div class="button-tip">
                 <button v-on:click="attack" class="button-tip__btn">
                     <span class="button-tip__btn">Attack</span>
@@ -62,7 +62,7 @@
             <!-- Special Attack Button -->
             <div class="button-tip">
                 <button v-on:click="specialAttack" class="button-tip__btn">
-                    <span class="button-tip__btn">Hunter Pistol</span>
+                    <span class="button-tip__btn">Pistol</span>
                     <span class="button-tip__text button-tip__text--2">
                         The Hunter Pistol is a ranged weapon that deals a massive amount of damage. Enemy will Attack back.
                     </span>
@@ -91,7 +91,7 @@
         </div>
 
         <!-- Restart Button -->
-        <div v-show="ended">
+        <div class="button-container" v-show="ended">
             <div class="button-tip">
                 <button v-on:click="restart" class="button-tip__btn">
                     <span class="button-tip__btn">Restart</span>

@@ -3,6 +3,10 @@
 
     &__img {
         width: 16%;
+
+        @include respond(tablet-portrait) {
+            width: 25%;
+        }
     }
 
     &__name {
@@ -21,12 +25,32 @@
             border: 2px solid #000;
             margin: 0 auto 7.3rem auto;
             background-color: #000;
+
+            @include respond(tablet-portrait) {
+                width: 55rem; 
+            }
+
+            @include respond(phone) {
+                width: 45rem; 
+            }
+
+            @include respond(smaller-phone) {
+                width: 40rem; 
+            }
+
+            @include respond(older-phone) {
+                width: 36rem; 
+            }
         }
 
         &--health-color {
             height: 2.2rem;
             background: crimson;
             transition: all .3s;
+
+            @include respond(phone) {
+                height: 1.8rem;
+            }
         }
 
         &--health-value {

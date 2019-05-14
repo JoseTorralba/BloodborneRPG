@@ -37,7 +37,7 @@ new Vue({
         bloodBulletSFX: 'media/BloodBullet.wav',
         healSFX: 'media/Heal.wav',
 
-        // Attack Optiona
+        // Attack Options
         options: {
 
             romAttack: {

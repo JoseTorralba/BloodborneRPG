@@ -11,9 +11,16 @@
         right: 10rem;
         cursor: pointer;
         transition: all .3s;
+        @include respond(phone) {
+            font-size: 2rem;
+        }
         
         &:not(:last-child) {
             margin-right: 6rem;
+
+            @include respond(tablet-portrait) {
+                margin-right: 0;
+            }
         }
 
         &:hover {
@@ -23,11 +30,18 @@
 
     &__sound {
         top: 4rem;
+
+        @include respond(phone) {
+            right: 3rem;
+        }
     }
 
     &__restart {
         top: 4rem;
         right: 18rem;
+        @include respond(phone) {
+            right: 7rem;
+        }
     }
 
     &__restart-text, &__sound-text {
