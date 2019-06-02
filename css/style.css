@@ -105,7 +105,7 @@ body {
 
 .secondary-heading {
   color: royalblue;
-  font-size: 3rem; }
+  font-size: 2.5rem; }
 
 .attacked-animation {
   position: relative;
@@ -140,7 +140,7 @@ body {
   overflow-y: scroll; }
   @media only screen and (max-width: 25.875em) {
     .battle-info {
-      height: 12rem; } }
+      height: 9rem; } }
   .battle-info__log {
     margin-bottom: 2rem;
     list-style: none; }
@@ -157,6 +157,7 @@ body {
 
 .btn--start {
   background-color: #000;
+  border: 1px solid #fff;
   color: #fff;
   font-size: 2rem;
   font-family: inherit;
@@ -177,6 +178,7 @@ body {
   cursor: pointer;
   color: #fff;
   background-color: #000;
+  border: 1px solid #fff;
   outline: none;
   font-family: 'VT323', monospace; }
   .btn--options:not(:last-child) {
@@ -184,10 +186,10 @@ body {
   @media only screen and (max-width: 37.5em) {
     .btn--options {
       font-size: 1.7rem;
-      padding: 1.3rem 1rem; } }
+      padding: 1.3rem 1.5rem; } }
   @media only screen and (max-width: 23.4375em) {
     .btn--options {
-      padding: .8rem .7rem; } }
+      padding: .8rem 1.4rem; } }
 
 .enemy-info {
   padding-top: 3rem; }
@@ -257,10 +259,10 @@ body {
           padding: 0 4rem; } }
     @media only screen and (max-width: 56.25em) {
       .instructions__box {
-        width: 80% !important; } }
+        width: 85% !important; } }
     @media only screen and (max-width: 37.5em) {
       .instructions__box {
-        top: 40rem; } }
+        top: 36rem; } }
   .instructions__text {
     font-size: 2.2rem;
     line-height: 1.5; }

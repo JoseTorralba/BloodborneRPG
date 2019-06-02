@@ -29,11 +29,11 @@
         }
 
         @include respond(tablet-portrait) {
-            width: 80% !important;
+            width: 85% !important;
         }
 
         @include respond(phone) {
-            top: 40rem;
+            top: 36rem;
         }
     }
 

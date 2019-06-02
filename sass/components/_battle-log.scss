@@ -9,7 +9,7 @@
     overflow-y: scroll;
 
     @include respond(smaller-phone) {
-        height: 12rem;
+        height: 9rem;
     }
 
     &__log {

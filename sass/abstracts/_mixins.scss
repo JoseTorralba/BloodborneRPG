@@ -12,8 +12,7 @@
     @if $breakpoint == older-phone {
         @media only screen and (max-width: 23.4375em) { @content }; // 375px
     }
-
-    // my phone size
+    // 7/8 Plus 
     @if $breakpoint == smaller-phone {
         @media only screen and (max-width: 25.875em) { @content }; // 414px
     }
