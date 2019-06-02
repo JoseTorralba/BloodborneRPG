@@ -262,7 +262,7 @@ body {
         width: 85% !important; } }
     @media only screen and (max-width: 37.5em) {
       .instructions__box {
-        top: 36rem; } }
+        top: 32rem; } }
   .instructions__text {
     font-size: 2.2rem;
     line-height: 1.5; }
