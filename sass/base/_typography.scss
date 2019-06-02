@@ -1,8 +1,31 @@
 body {
     font-family: 'VT323', monospace;
     text-align: center;
+
+
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .4),
+        rgba(0, 0, 0, .8)),
+    url(../media/8bit-bg1.gif);
+
+    background-size: cover;
+    background-position: bottom;
+    // font-size: 1.6rem;
+
+
 }
 
 .fa-pause {
     color: royalblue !important;
+}
+
+.primary-heading {
+    font-size: 4rem;
+}
+
+.secondary-heading {
+    color: royalblue;
+    font-size: 3rem;
 }

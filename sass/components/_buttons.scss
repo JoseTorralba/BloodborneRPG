@@ -1,22 +1,32 @@
-// Button / Hover Tips
-.button-container {
-    @include respond(tablet-portrait) {
-        margin-top: -5rem;
-    }
-    @include respond(older-phone) {
-        margin-top: -6rem;
-    }
-}
+.btn {
 
-.button-tip {
-    position: relative;
-    display: inline-block;
-
-    &:not(:last-child) {
-        margin-right: 1rem;
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-decoration: none;
     }
 
-    &__btn {
+    &--start {
+        background-color: #000;
+        color: #fff;
+        font-size: 2rem;
+        font-family: inherit;
+        padding: 1.3rem 1.5rem;
+        outline: none;
+        transition: all .3s;
+
+        &:hover {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        @include respond(phone) {
+            font-size: 1.7rem;
+        }
+    }
+
+    &--options {
         font-size: 2rem;
         padding: 1.3rem 1.5rem;
         cursor: pointer;
@@ -24,6 +34,10 @@
         background-color: #000;
         outline: none;
         font-family: 'VT323', monospace;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
         
         @include respond(phone) {
             font-size: 1.7rem;
@@ -33,51 +47,5 @@
         @include respond(older-phone) {
             padding: .8rem .7rem;
         }
-    }
-
-    &__text {
-        border: 1px solid #fff;
-        border-radius: 3px;
-        color: #fff;
-        background-color: #000;
-        font-size: 2rem;
-        font-weight: 100;
-        line-height: 1.6;
-        text-align: left;
-        margin-left: -60px;
-        padding: 1rem 2rem;
-        position: absolute;
-        top: -6.5rem;
-        visibility: hidden;
-        z-index: 1000;
-
-        &--1 {
-            left: -60%; 
-            width: 800px;
-        }
-        &--2 {
-            left: -19rem; 
-            width: 800px;
-        }
-        &--3 {
-            left: -10rem; 
-            width: 280px;
-        }
-        &--4 {
-            left: -41rem; 
-            width: 580px;
-        }
-        &--5 {
-            left: 3rem; 
-            width: 130px;
-        }
-
-        @include respond(tablet-portrait) {
-            display: none;
-        }
-    }
-
-    &__btn:hover &__text {
-        animation: hide-description 3s ease;
     }
 }

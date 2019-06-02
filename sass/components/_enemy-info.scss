@@ -23,7 +23,7 @@
         &--health-bar {
             width: 700px;
             border: 2px solid #000;
-            margin: 0 auto 7.3rem auto;
+            margin: 0 auto 3rem auto;
             background-color: #000;
 
             @include respond(tablet-portrait) {

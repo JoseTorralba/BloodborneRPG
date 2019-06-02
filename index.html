@@ -12,10 +12,51 @@
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- VUE -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- to work with when connected to wifi -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 </head>
 <body>
-    <div id="vue-app">
+    <!-- Game Instructions -->
+    <div class="instructions" id="game-instructions" v-show="!gameStarted">
+        <div class="instructions__box">
+            <div class="instructions__box--1">
+                <h1 class="primary-heading">
+                    Bloodborne RPG
+                </h1>
+            </div>
+
+            <div class="instructions__box--2">
+                <p class="instructions__text">A mock Turned Based RPG with Bloodborne references</p>
+                <p class="instructions__text">You will be facing Rom, the Vacuous Spider. Here is some info before you start!</p>
+            </div>
+
+            <div class="instructions__box--3">
+                <h2 class="secondary-heading">Attack</h2>
+                <p class="instructions__text--1">
+                    Attack with the Saw Cleaver, a melee weapon that deals a good amount of damage.
+                </p>
+
+                <h2 class="secondary-heading">Hunter Pistol</h2>
+                <p class="instructions__text--2">
+                    The Hunter Pistol is a ranged weapon that deals a massive amount of damage.
+                </p>
+
+                <h2 class="secondary-heading">Blood Vials</h2>
+                <p class="instructions__text--3">
+                    Blood Vials heal 25% of your health.
+                </p>
+
+                <h2 class="secondary-heading">Blood Ammo</h2>
+                <p class="instructions__text--4">
+                    Inflict 10% damage on self and gain an extra 4 bullets made out of blood.
+                </p>
+            </div>
+            <button class="btn btn--start" v-on:click="startGame">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Game -->
+    <div id="game-app" v-show="!gameOngoing">
         <!-- Sound Icon -->
         <div class="options">
             <i v-bind:class="['options__sound', bgm.isPlaying ? 'fas fa-pause' : 'fas fa-play']" 
@@ -48,58 +89,34 @@
             </div>
         </div>
 
-        <!-- Attack Button -->
+        <!-- Buttons Container -->
         <div class="button-container" v-show="!ended">
-            <div class="button-tip">
-                <button v-on:click="attack" class="button-tip__btn">
-                    <span class="button-tip__btn">Attack</span>
-                    <span class="button-tip__text button-tip__text--1">
-                        Attack with Saw Cleaver, a melee weapon that deals a good amount of damage. Enemy will Attack back.
-                    </span>
-                </button>
-            </div>
+            <!-- Attack Button -->
+            <button v-on:click="attack" class="btn btn--options" :disabled="romIsAttacking">
+                Attack
+            </button>
     
             <!-- Special Attack Button -->
-            <div class="button-tip">
-                <button v-on:click="specialAttack" class="button-tip__btn">
-                    <span class="button-tip__btn">Pistol</span>
-                    <span class="button-tip__text button-tip__text--2">
-                        The Hunter Pistol is a ranged weapon that deals a massive amount of damage. Enemy will Attack back.
-                    </span>
-                </button>
-            </div>
+            <button v-on:click="specialAttack" class="btn btn--options" :disabled="romIsAttacking">
+                Pistol
+            </button>
             
             <!-- Cure Button -->
-            <div class="button-tip">
-                <button v-on:click="heal" class="button-tip__btn">
-                    <span class="button-tip__btn">Blood Vial</span>
-                    <span class="button-tip__text button-tip__text--3">
-                        Blood Vials heal 25% of your health
-                    </span>
-                </button>
-            </div>
-            
+            <button v-on:click="heal" class="btn btn--options" :disabled="romIsAttacking">
+                Blood Vial
+            </button>
+
             <!-- Regain Bullets Button -->
-            <div class="button-tip">
-                <button v-on:click="bloodBullet" class="button-tip__btn">
-                    <span class="button-tip__btn">Blood Ammo</span>
-                    <span class="button-tip__text button-tip__text--4">
-                        Inflict 10% damage on self and gain an extra 4 bullets made out of blood.
-                    </span>
-                </button>
-            </div>
+            <button v-on:click="bloodBullet" class="btn btn--options" :disabled="romIsAttacking">
+                Blood Ammo
+            </button>
         </div>
 
         <!-- Restart Button -->
         <div class="button-container" v-show="ended">
-            <div class="button-tip">
-                <button v-on:click="restart" class="button-tip__btn">
-                    <span class="button-tip__btn">Restart</span>
-                    <span class="button-tip__text button-tip__text--5">
-                        Start a new game
-                    </span>
-                </button>
-            </div>
+            <button v-on:click="restart" class="btn btn--options">
+                Start a new game
+            </button>
         </div>
 
         <!-- Player Information -->
@@ -109,7 +126,7 @@
                     <h2 class="player-info__heading">Hunter</h2>
 
                     <!-- Player Health -->
-                    <div class="player-info__health-bar">
+                    <div class="player-info__health-bar" id="player-health-bar">
                         <div class="player-info__health-color" v-bind:style="playerHealthBar"></div>
                         <p class="player-info__health-value"> {{ playerHealth }} </p>
                     </div>
@@ -135,12 +152,9 @@
                 <div class="battle-info" id="battle-log">
                     <ul class="battle-info__log" v-for="(log, index) in battleLog"> 
                         
+                        <!-- Maybe instead of attacking, maybe change it to followUp?? nextTurn??? isActive???? -->
                         <li class="battle-info__text" v-if="log.isAttacking">
-                            {{ log.info }} {{ log.damage }} Damage
-                        </li>
-
-                        <li class="battle-info__text" v-else-if="log.isSpecialAttacking">
-                            {{ log.info }} {{ log.damage }} Damage
+                            {{ log.damage }}
                         </li>
 
                         <li class="battle-info__text" v-else-if="log.isHealing">
@@ -155,6 +169,8 @@
             </div>
         </div>
     </div>
+    <!-- To work with locally -->
+    <script src="js/vue.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

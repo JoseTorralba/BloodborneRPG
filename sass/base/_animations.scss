@@ -35,16 +35,21 @@
     }
 }
 
-@keyframes hide-description {        
+@keyframes stare {        
     0% { 
-        opacity: 0; 
-        visibility: visible; 
+        transform: scale(1);
     }
 
-    10% { opacity: 1; }
-    80% {opacity: 1;}
-    100% { opacity: 0; }
+    99% { 
+        transform: scale(1.1);
+    }
+
+    100% { 
+        transform: scale(1);
+    }
+
 }
+
 
 @keyframes heal-effect {
     0% {
@@ -55,5 +60,55 @@
     }
     100% { 
       filter: sepia() saturate(100%) hue-rotate(90deg);
+    }
+}
+
+
+@keyframes defeated-animation {        
+    0% { 
+        transform: translateX(0);
+    }
+  
+    10% { 
+        transform: translateX(20px);
+    }
+  
+    20% { 
+        transform: translateX(-20px);
+    }
+  
+    30% { 
+        transform: translateX(20px);
+    }
+  
+    40% { 
+        transform: translateX(-20px);
+    }
+
+    
+    50% { 
+        transform: translateX(20px);
+        opacity: 1;
+    }
+  
+    60% { 
+        transform: translateX(-20px);
+    }
+  
+    70% { 
+        transform: translateX(20px);
+    }
+  
+    80% { 
+        transform: translateX(-20px);
+    }
+  
+    90% { 
+        transform: translateX(20px);
+    }
+  
+    100% { 
+        transform: translate(0);
+        opacity: 0;
     }
 }
