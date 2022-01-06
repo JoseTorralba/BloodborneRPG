@@ -1,0 +1,52 @@
+.player-name {
+   color: #fff;
+   font-size: 2.4rem;
+   font-weight: 500;
+   padding-bottom: 1rem;
+}
+
+.player-health-bar {
+   width: 200px;
+   border: 2px solid #fff;
+   margin: 0 auto 20px auto;
+}
+
+.player-health-color {
+   height: 2rem;
+   background: #4169e1;
+   transition: all .3s;
+}
+
+.player-health-value {
+   color: #fff;
+   font-size: 2rem;
+   font-weight: 100;
+   padding: .5rem 0;
+}
+.player-vials,
+.player-ammo {
+   color: #fff;
+   font-size: 2rem;
+   font-weight: 100;
+}
+
+.player-vials-full,
+.player-ammo-full {
+   color: #00ff00;
+}
+
+.player-vials-half,
+.player-ammo-half {
+   color: #ffff00;
+}
+
+.player-vials-low,
+.player-ammo-low {
+   color: #ff0000;
+}
+
+@media only screen and (max-width: 37.5em) {
+   .player-name {
+      padding-bottom: 0;
+   }   
+}

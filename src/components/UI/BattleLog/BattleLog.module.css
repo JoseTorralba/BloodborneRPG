@@ -1,0 +1,32 @@
+.battle-log {
+    background-color: #141414;
+    border: 2px solid #fff;
+    padding: 1rem 2rem;
+    text-align: left;
+    height: 16rem;
+    overflow-y: scroll;
+}
+
+.battle-log-info {
+   list-style: none;
+}
+
+.battle-log-text {
+   color: #fff;
+   font-size: 2.2rem;
+}
+
+.battle-log-text:not(:last-child) {
+   margin-bottom: 2.2rem;
+}
+
+@media only screen and (max-width: 25.875em) {
+   .battle-log {
+      height: 11rem;
+   }
+
+   .battle-log-text {
+      color: #fff;
+      font-size: 2rem;
+   }
+}

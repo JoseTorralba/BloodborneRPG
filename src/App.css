@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.row {
+   display: grid;
+   grid-template-columns: 30rem 1fr;
+   grid-gap: 0 3rem;
+   margin: 3rem auto 0 auto;
+   max-width: 100rem;
+}
+
+.boss-container {
+   max-width: 114rem;
+   margin: 0 auto;
+}
+
+@media only screen and (max-width: 56.25em) {
+   .row {
+      grid-template-columns: repeat(1, auto);
+      grid-gap: 3rem 0;
+      padding: 0 4rem;
+      max-width: 70rem;
+   }
+
+   .player-options {
+      max-width: 70rem;
+      margin: 0 auto;
+      padding: 0 4rem;
+   }
+}
+
+@media only screen and (max-width: 37.5em) {
+   .row {
+      grid-template-columns: repeat(1, auto);
+      grid-gap: 3rem 0;
+      max-width: 50rem;
+   }
+   .player-options {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-gap: 1rem;
+      max-width: 50rem;
+   }
+}

@@ -1,0 +1,11 @@
+.player {
+    background-color: #141414;
+    border: 2px solid #fff;
+    padding: 2rem 0;
+}
+
+@media only screen and (max-width: 37.5em) {
+   .player {
+      padding: 1.4rem;
+   }
+}

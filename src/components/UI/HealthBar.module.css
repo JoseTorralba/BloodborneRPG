@@ -1,0 +1,24 @@
+.health-box {
+   padding-top: 1rem;
+   width: 60%;
+   margin: 0 auto;
+}
+
+.health-bar {
+   max-width: 70rem;
+   background-color: #000;
+   border: 1.9px solid #fff;
+   border-radius: .2rem;
+   margin: 0 auto 2rem auto;
+   position: relative;
+}
+
+.health-value {
+   position: absolute;
+   top: 0;
+   left: 50%;
+   transform: translate(-50%, 0);
+   -webkit-transform: translate(-50%, 0);
+   color: #fff;
+   font-size: 2rem;
+}

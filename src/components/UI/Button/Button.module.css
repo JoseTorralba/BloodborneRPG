@@ -1,0 +1,49 @@
+.btn {
+   font-size: 2rem;
+   padding: 1rem 4rem;
+   cursor: pointer;
+   color: #fff;
+   background-color: #141414;
+   border: none;
+   border: 2px solid #fff;
+   border-radius: .2rem;
+   outline: none;
+   font-family: 'VT323', monospace;
+   transition: all .2s;
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover {
+   border-color: #fff;
+   transform: translateY(-.2rem);
+}
+
+.btn:disabled {
+   color: #ccc;
+   border-color: #ccc;
+   transform: translateY(0);
+}
+
+.btn:not(:last-child) {
+   margin-right: 2rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+   .btn {
+      font-size: 1.7rem;
+      padding: .8rem 1.5rem;
+   }
+   .btn {
+      font-size: 2rem;
+      font-size: 1.7rem;
+      padding: .8rem .5rem;
+   }
+   .btn:not(:last-child) {
+      margin-right: 0;
+   }
+}
