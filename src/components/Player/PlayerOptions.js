@@ -51,7 +51,7 @@ const PlayerOptions = () => {
          return;
       };
 
-      if (boss.bossGameOver) {
+      if (boss.gameOver) {
          dispatch(bossActions.toggleIsAttacking());
          dispatch(logActions.displayBattleLog(`You defeated the Scourge Beast!`));
          return;
@@ -65,7 +65,7 @@ const PlayerOptions = () => {
          playerInit = false;
          return;
       };
-      if (player.playerGameOver) dispatch(logActions.displayBattleLog(`You Died!`));
+      if (player.gameOver) dispatch(logActions.displayBattleLog(`You Died!`));
 
    }, [player.health]);
    
@@ -143,7 +143,7 @@ const PlayerOptions = () => {
    
    return (
       <>
-         {!player.playerGameOver && !boss.bossGameOver && (
+         {!player.gameOver && !boss.gameOver && (
             <>
                <Button onClick={attackHandler}>Attack</Button>
                <Button onClick={pistolHandler}>Pistol</Button>
@@ -152,7 +152,7 @@ const PlayerOptions = () => {
             </>
          )}
 
-         {(player.playerGameOver || boss.bossGameOver) && (
+         {(player.gameOver || boss.gameOver) && (
             <>
                <Button onClick={restartHandler}>Restart</Button>
             </>

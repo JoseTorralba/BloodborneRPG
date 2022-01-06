@@ -44,11 +44,7 @@
       font-size: 1.7rem;
       padding: .8rem 1.5rem;
    }
-   .btn {
-      font-size: 2rem;
-      font-size: 1.7rem;
-      padding: .8rem .5rem;
-   }
+
    .btn:not(:last-child) {
       margin-right: 0;
    }

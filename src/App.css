@@ -16,6 +16,15 @@
    margin: 0 auto;
 }
 
+.restart {
+   margin: 0 auto;
+   max-width: 70rem;
+}
+
+.restart button {
+   padding: 1rem 4rem;
+}
+
 @media only screen and (max-width: 56.25em) {
    .row {
       grid-template-columns: repeat(1, auto);
@@ -46,5 +55,10 @@
       grid-template-columns: repeat(2, auto);
       grid-gap: 1rem;
       max-width: 50rem;
+   }
+   
+   .restart button {
+      font-size: 1.7rem;
+      padding: .8rem 1.5rem;
    }
 }

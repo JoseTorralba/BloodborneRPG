@@ -10,6 +10,8 @@ import './App.css';
 function App() {
    const [gameStarted, setGameStarted] = useState(false)
    const battleLogText = useSelector(state => state.log.battleLog);
+   const bossGameOver = useSelector(state => state.boss.gameOver);
+   const playerGameOver = useSelector(state => state.player.gameOver);
 
    const startGameHandler = () => setGameStarted(true);
    return (
@@ -20,7 +22,7 @@ function App() {
                   <Boss />
                </div>
    
-               <div className='player-options'>
+               <div className={(bossGameOver || playerGameOver) ? 'restart' : 'player-options'}>
                   <PlayerOptions />
                </div>
    

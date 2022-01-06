@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialBossState = { 
    health: 100,
    isAttacking: false,
-   bossGameOver: false
+   gameOver: false
 }
 
 const bossSlice = createSlice({
@@ -15,7 +15,7 @@ const bossSlice = createSlice({
 
          if (state.health <= 0) {
             state.health = 0;
-            state.bossGameOver = true;
+            state.gameOver = true;
          }
       },
 
@@ -25,7 +25,7 @@ const bossSlice = createSlice({
 
       restart(state) {
          state.health = 100;
-         state.bossGameOver = false;
+         state.gameOver = false;
       }
    }
 });

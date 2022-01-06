@@ -5,7 +5,7 @@ const initialPlayerState = {
    ammo: 12,
    vials: 20,
    bloodAmmoUsage: false,
-   playerGameOver: false
+   gameOver: false
 }
 
 const playerSlice = createSlice({
@@ -18,7 +18,7 @@ const playerSlice = createSlice({
          
          if (state.health <= 0) {
             state.health = 0;
-            state.playerGameOver = true;
+            state.gameOver = true;
          }
       },
 
@@ -66,7 +66,7 @@ const playerSlice = createSlice({
          state.health = 100;
          state.ammo = 12;
          state.vials = 20;
-         state.playerGameOver = false;
+         state.gameOver = false;
       }
    }
 });
