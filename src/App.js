@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
+import Instructions from './components/UI/Instructions/Instructions';
 import Player from './components/Player/Player';
 import Boss from './components/Boss/Boss';
 import PlayerOptions from './components/Player/PlayerOptions';
@@ -7,22 +8,30 @@ import BattleLog from './components/UI/BattleLog/BattleLog';
 import './App.css';
 
 function App() {
+   const [gameStarted, setGameStarted] = useState(false)
    const battleLogText = useSelector(state => state.log.battleLog);
 
+   const startGameHandler = () => setGameStarted(true);
    return (
       <div className="App">
-         <div className='boss-container'>
-            <Boss />
-         </div>
-
-         <div className='player-options'>
-            <PlayerOptions />
-         </div>
-
-         <div className='row'>
-            <Player />
-            <BattleLog message={battleLogText} />
-         </div>
+         {gameStarted ? 
+            <>
+               <div className='boss-container'>
+                  <Boss />
+               </div>
+   
+               <div className='player-options'>
+                  <PlayerOptions />
+               </div>
+   
+               <div className='row'>
+                  <Player />
+                  <BattleLog message={battleLogText} />
+               </div>
+            </>
+            :
+            <Instructions onStart={startGameHandler} />
+         }
       </div>
    );
 };

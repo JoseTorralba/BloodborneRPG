@@ -1,14 +1,14 @@
 .btn {
-   font-size: 2rem;
-   padding: 1rem 4rem;
-   cursor: pointer;
-   color: #fff;
    background-color: #141414;
    border: none;
    border: 2px solid #fff;
    border-radius: .2rem;
+   color: #fff;
+   cursor: pointer;
+   font-family: inherit;
+   font-size: 2rem;
    outline: none;
-   font-family: 'VT323', monospace;
+   padding: 1rem 4rem;
    transition: all .2s;
 }
 
@@ -19,7 +19,6 @@
 }
 
 .btn:hover {
-   border-color: #fff;
    transform: translateY(-.2rem);
 }
 
@@ -31,6 +30,13 @@
 
 .btn:not(:last-child) {
    margin-right: 2rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+   .btn:hover {
+      border-color: #fff;
+      transform: none;
+   }
 }
 
 @media only screen and (max-width: 37.5em) {

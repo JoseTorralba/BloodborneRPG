@@ -32,6 +32,10 @@
 }
 
 @media only screen and (max-width: 37.5em) {
+   .App {
+      padding: 3rem 0;
+    }
+
    .row {
       grid-template-columns: repeat(1, auto);
       grid-gap: 3rem 0;

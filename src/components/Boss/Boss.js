@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import img from './../../img/beast.gif';
 import BossUI from '../UI/BossUI/BossUI';
-import HealthBar from '../UI/HealthBar';
+import HealthBar from '../UI/HealthBar/HealthBar';
 import classes from './Boss.module.css';
 
 const Boss = () => {

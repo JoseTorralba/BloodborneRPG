@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import PlayerUI from '../UI/PlayerUI/PlayerUI';
-import HealthBar from '../UI/HealthBar';
+import HealthBar from '../UI/HealthBar/HealthBar';
 import classes from './Player.module.css';
 
 const Player = () => {
